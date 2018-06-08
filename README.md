@@ -20,7 +20,7 @@ Tenga en cuenta los siguientes modelos minimos a crear:
 
 
 
-Cree la configuracion del administrador para gestionar dichos modelos. Use formset para manejar la vista maestro / detalle del Pedido y el detalle del pedido.
+Cree la configuracion del administrador para gestionar dichos modelos. Use formset para manejar la vista maestro/detalle de: Pedido y el detalle del pedido.
 
 Cree las urls, vistas, y plantillas segun requiera para realizar autenticacion, listar los articulos y crear los pedidos.
 
