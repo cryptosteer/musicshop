@@ -1,6 +1,6 @@
 ### Music Shop
 
-Cree una aplicacion web usando el framework django version 1.11, que permita gestionar una tienda de musica.
+Cree una aplicacion web usando el framework django, que permita gestionar una tienda de musica.
 
 Tenga en cuenta los siguientes modelos minimos a crear:
 
@@ -9,7 +9,7 @@ Tenga en cuenta los siguientes modelos minimos a crear:
   - Cliente
 - Tipo de articulo
 
-​	Ej: Cassete, LP, CD, VHS, DVD, Otros
+		Ej: Cassete, LP, CD, VHS, DVD, Otros
 
 - Articulo
   - Genero, Tipo, Album, Artista, Año, Valor
@@ -20,11 +20,13 @@ Tenga en cuenta los siguientes modelos minimos a crear:
 
 
 
-Cree los modelo, administrador, urls, vistas, formularios y plantillas segun requiera para completar la solucion
+Cree la configuracion del administrador para gestionar dichos modelos. Use formset para manejar la vista maestro / detalle del Pedido y el detalle del pedido.
+
+Cree las urls, vistas, y plantillas segun requiera para realizar autenticacion, listar los articulos y crear los pedidos.
 
 Se tendra en cuenta para la evaluacion final:
 
 1. La totalidad de la aplicacion realizada (3/5)
-2. Buenas practicas y soluciones optimas (1/5)
+2. Buenas practicas (1/5)
 3. Interfaces visuales (Plantilla) bien diseñada (1/5)
 
