@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Articulo</title>
+    {% load static %}
+</head>
+<body>
+
+        <table>
+            <tr>
+              <td><strong>Nombre</strong></td>
+              <td><strong>Genero</strong></td>
+              <td><strong>Artista</strong></td>
+              <td><strong>Valor</strong></td>
+              <td><strong>Año</strong></td>
+              <td><strong>Tipo Articulo</strong></td>
+            </tr>
+        <tr>
+     {% for art in articulo %}
+          <td>{{ art.nombre }}</td>
+          <td>{{ art.genero }}</td>
+          <td>{{ art.artista }}</td>
+        </tr>
+
+    {% endfor %}
+        </table>
+
+</body>
+</html>
