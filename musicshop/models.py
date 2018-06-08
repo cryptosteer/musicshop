@@ -57,9 +57,9 @@ class Order(models.Model):
 
 
 class OrderDetails(models.Model): # tabla intermedia: detalles del pedido
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    note = models.DecimalField(max_digits=2, decimal_places=1)   # new atribute
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    amount = models.ForeignKey(Article.amount, on_delete=models.CASCADE)
+    price = models.ForeignKey(Article.price, on_delete=models.CASCADE)
     
     def __str__(self):
        return str(self.note)
