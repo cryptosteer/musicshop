@@ -1,0 +1,66 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% block titulo_ventana %} Articulos {% endblock %}
+{% block titulo %} Articulos {% endblock %}
+{% block subtitulo %}
+    Lista de articulos
+    <a href="{% url 'articulos:nuevo' %}" type="button" class="btn btn-primary">
+        Nuevo articulos
+    </a>
+{% endblock %}
+{% block contenido %}
+    <div class="col-xs-12">
+        <div class="box">
+            {% include 'inclusion_tags/messages.html' %}
+            <div class="box-header">
+                <h3 class="box-title">Tabla de articulos </h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                <table class="table table-bordered table-striped datatable-active-grouprow" width="100%">
+                    <thead>
+                    <tr>
+                        <th>Proyecto</th>
+                        <th>Estudio</th>
+                        <th>Descripción</th>
+                        <th>Fecha de creación</th>
+                        <th>Creador</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for articulo in articulos %}
+                    <tr>
+                        <td>{{ articulo.nombre }}</td>
+                        <td>{{ articulo.descripcion }}</td>
+                        <td>{{ articulo.tipo }}</td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Acción <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ articulo.get_absolute_url }}">Editar</a></li>
+                                    <li><a role="button" class="btn-eliminar" name="{{ articulo.nombre }}"
+                                           id="{{ articulo.slug }}"
+                                           data-toggle="modal" data-target="#modal-eliminar">Eliminar</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div><!-- /.col -->
+
+    {# Modal de eliminar #}
+    {% include 'inclusion_tags/modal_eliminar.html' %}
+
+{% endblock %}
+{% block extrascript %}
+    <script src="{% static 'plugins/datatables/dataTables.rowsGroup.js' %}"></script>
+    <script>
+        deleteModalForm("articulos", "el articulo");
+    </script>
+{% endblock %}

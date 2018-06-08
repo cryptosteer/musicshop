@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.auth.views import LoginView
+
+from musicshop import views
+from musicshop.views import ArticuloListView
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls,),
+    url(r'^$', LoginView.as_view(), name='login'),
+    url(r'^articulos/$', ArticuloListView.as_view(), name='articulos')
 ]
