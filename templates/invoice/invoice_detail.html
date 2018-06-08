@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="{% url 'musicshop:create_order_detail' %}" method="POST">
+    {% csrf_token %}
+    {{ form }}
+     <button type="submit">Registrar</button>
+</form>
+
+    <a href="{% url 'musicshop:create_order' %}" >Registrar</a>
+
+
+</body>
+</html>
