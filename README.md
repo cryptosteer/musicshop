@@ -30,3 +30,8 @@ Se tendra en cuenta para la evaluacion final:
 2. Buenas practicas (1/5)
 3. Interfaces visuales (Plantilla) bien diseñada (1/5)
 
+# Usuarios de prueba
+
+- username: jrnp97, password: 123456 - profile: seller
+- username: lula, password: 123456 - profile: client
+

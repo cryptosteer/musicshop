@@ -3,12 +3,13 @@
 {% load crispy_forms_tags %}
 <head>
     <meta charset="UTF-8">
-    <title>MS - Register</title>
+    <title>Order - Register</title>
 </head>
 <body>
 <form method="POST">
     {% csrf_token %}
     {{ form | crispy }}
+    <hr>
     <button type="submit">Enviar</button>
 </form>
 </body>

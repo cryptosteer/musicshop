@@ -10,14 +10,16 @@
 
 {% if request.user.user_type == 'Seller' %}
     <ul>
-        <li>Registrar Pedido.</li>
-        <li>Ver pedidos.</li>
-        <li>Ver Articulos.</li>
-</ul>
+        <li><a href="{% url 'musicshop:create_order' %}">Registrar Pedido.</a></li>
+        <li><a href="{% url 'musicshop:create_tarticle' %}">Crear Tipo Articulo.</a></li>
+        <li><a href="{% url 'musicshop:create_article' %}">Crear Articulo.</a></li>
+        <li><a href="{% url 'musicshop:view_orders' %}">Ver pedidos.</a></li>
+        <li><a href="{% url 'musicshop:view_article' %}">Ver Articulos.</a></li>
+    </ul>
 {% else %}
     <ul>
-        <li>Ver pedidos.</li>
-        <li>Ver Articulos.</li>
+        <li><a href="{% url 'musicshop:view_orders' %}">Ver pedidos.</a></li>
+        <li><a href="{% url 'musicshop:view_article' %}">Ver Articulos.</a></li>
     </ul>
 {% endif %}
 
