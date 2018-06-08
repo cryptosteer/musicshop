@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+{% block titulo_ventana %} Nuevo Pedido {% endblock %}
+{% block titulo %} Nuevo pedido {% endblock %}
+{% block subtitulo %}  Crear un pedido  {% endblock %}
+
+{% block content %}
+    <form role="form" method="post">
+        {% csrf_token %}
+        <div class="col-md-6" >
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">Datos del proyecto</h3>
+                </div><!-- /.box-header -->
+
+                <!-- form start -->
+                <div class="box-body">
+                    {{ form.as_p }}
+                </div><!-- /.box-body -->
+
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </div><!-- /.box -->
+        </div><!--/.col (left) -->
+    </form>
+{% endblock %}
