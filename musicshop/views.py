@@ -29,8 +29,8 @@ def addPedido (request):
 
     else:
         formulario=FormularioAddPedido()
-        template= loader.get_template('addPedido.html')
-        contexto = {
+    template= loader.get_template('addPedido.html')
+    contexto = {
             'formulario':formulario,
         }
     return HttpResponse(template.render(contexto,request))
