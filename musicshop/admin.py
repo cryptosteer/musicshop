@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from musicshop.models import Articulo, TipoArticulo, Cliente, Vendedor, Pedido
+from musicshop.models import Articulo, TipoArticulo, Cliente, Vendedor, Pedido, DetallePedido
 
 
 @admin.register(Cliente)
@@ -27,3 +27,8 @@ class AdminArticulo(admin.ModelAdmin):
 @admin.register(Pedido)
 class AdminPedido(admin.ModelAdmin):
     list_display = ('clientePedido', 'vendedorPedido', 'fecha', 'total',)
+
+
+@admin.register(DetallePedido)
+class AdminDetalleProducto(admin.ModelAdmin):
+    list_display = ('articulo', 'cantidad', 'valor')

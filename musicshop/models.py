@@ -49,3 +49,12 @@ class Pedido(models.Model):
 
     def __str__(self):
         return self.id
+
+
+class DetallePedido(models.Model):
+    cantidad=models.IntegerField()
+    valor=models.IntegerField()
+    articulo=models.ForeignKey(Articulo, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.id
