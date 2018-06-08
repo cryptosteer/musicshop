@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Autor</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for lib in libros %}
+    <tr>
+      <th scope="row">{{ lib.id }}</th>
+      <td>{{ lib.nombre }}</td>
+      <td>{{ lib.categoria.nombre }}</td>
+      <td>{{ lib.autor }}</td>
+      <td><a href="{% url 'libros:editarlibro' lib.id %}"> <span>Editar</span></a></td>
+      <td><a href=""><span>Eliminar</span></a></td>
+
+
+
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

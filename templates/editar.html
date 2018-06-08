@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block contenido %}
+<form method="post">
+    {% csrf_token %}
+    {{  form.as_p }}
+    <button type="submit">Editar</button>
+</form>
+{% endblock %}
