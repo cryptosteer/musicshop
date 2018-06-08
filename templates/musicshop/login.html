@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load crispy_forms_tags %}
+<head>
+    <meta charset="UTF-8">
+    <title>MS - Login</title>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    {{ form | crispy }}
+    <input name="next" type="hidden" value="{% url 'musicshop:dashboard' %}">
+    <hr>
+    <button type="submit">Enviar</button>
+</form>
+
+</body>
+</html>

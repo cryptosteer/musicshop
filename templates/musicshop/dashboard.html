@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MS - Dashboard</title>
+</head>
+<body>
+
+<h1> Bienvenido {{ request.user }}</h1>
+
+{% if request.user.user_type == 'Seller' %}
+    <ul>
+        <li>Registrar Pedido.</li>
+        <li>Ver pedidos.</li>
+        <li>Ver Articulos.</li>
+</ul>
+{% else %}
+    <ul>
+        <li>Ver pedidos.</li>
+        <li>Ver Articulos.</li>
+    </ul>
+{% endif %}
+
+
+<hr>
+<a href="{% url 'musicshop:logout' %}">Logout</a>
+
+</body>
+</html>
