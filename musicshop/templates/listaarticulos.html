@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="{% url "musicshop:crearpedido" %}">Crear pedido</a>
+    <table>
+        <thead>
+                <th>
+                    Genero
+                </th>
+                <th>
+                    Tipo de articulo
+                </th>
+                <th>
+                    Album
+                </th>
+                <th>
+                    Artista
+                </th>
+                <th>
+                    Año
+                </th>
+                <th>
+                    Valor
+                </th>
+        </thead>       <tbody>
+{% for articulo in articulos %}
+
+
+            <tr>
+                <td>{{ articulo.genero }}</td>
+                <td>{{ articulo.tipoarticulo }}</td>
+                <td>{{ articulo.album }}</td>
+                <td>{{ articulo.artista }}</td>
+                <td>{{ articulo.anio }}</td>
+                <td>{{ articulo.valor }}</td>
+            </tr>
+
+{% endfor %}
+    </tbody>
+    </table>
+</body>
+</html>

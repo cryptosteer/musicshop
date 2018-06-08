@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+CREACION DE PEDIDO PARA CLIENTE
+<form method="POST">
+    {% csrf_token %}
+    <label>Fecha del pedido</label><input type="date" name="fecha"/>
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>
