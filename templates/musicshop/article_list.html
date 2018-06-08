@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Articulos</title>
+</head>
+<body>
+<h1>Articles</h1>
+<p>This is the template for Articles</p>
+<ul>
+    {% for pr in object_list %}
+        <li>
+            <a href="{% url 'musicshop:detail_article' pk=pr.id %}">{{ pr.name }} </a> |
+            {{ pr.typee }} |
+            {{ pr.genre }} $
+            {% if pr.image %}
+                <img src="{{ pr.image.url }}" alt=" ">
+            {% endif %}
+        </li>
+    {% endfor %}
+    {#    <li>Yogurth</li>#}
+    {#    <li>Espejo</li>#}
+</ul>
+</body>
+</html>
