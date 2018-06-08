@@ -7,7 +7,8 @@
 </head>
 <body>
     <form method="post">
-        {{ formulario.star }}
+        {% csrf_token %}
+        {{ formulario }}
         <button type="submit">Agregar</button>
     </form>
 </body>
