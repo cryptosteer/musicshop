@@ -26,7 +26,7 @@ Cree las urls, vistas, y plantillas segun requiera para realizar autenticacion, 
 
 Se tendra en cuenta para la evaluacion final:
 
-1. La totalidad de la aplicacion realizada (3/5)
-2. Buenas practicas (1/5)
-3. Interfaces visuales (Plantilla) bien diseñada (1/5)
+1. La totalidad de la aplicacion realizada 
+2. Buenas practicas 
+3. Interfaces visuales (Plantilla) bien diseñada 
 
