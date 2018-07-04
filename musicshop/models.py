@@ -15,8 +15,8 @@ class User(AbstractUser):
     def get_seller_profile(self):
         seller_profile = None
         if hasattr(self, 'sellerprofile'):
-            developer_profile = self.developerprofile
-        return developer_profile
+            seller_profile = self.sellerprofile
+        return seller_profile
 
     def get_client_profile(self):
         client_profile = None
@@ -96,8 +96,33 @@ class Order(models.Model):
     date = models.DateField(auto_now_add=True)
     total = models.DecimalField(decimal_places=3, max_digits=20)
 
+    def save(selfs, *args, **kwargs):
+        if not selfs.id:
+            selfs.total = 0
+        super(Order, selfs).save(*args, **kwargs)
+
+    def __str__(self):
+        return '#{} - Order to {}'.format(self.id, self.client.user.first_name)
+
 
 class OrderDetail(models.Model):
-    article = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='orders')
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='orders')
     amount = models.IntegerField()
     value = models.DecimalField(decimal_places=3, max_digits=20)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='orderdetails')
+
+    def save(self, *args, **kwargs):
+        if self.id:
+            old = OrderDetail.objects.get(pk=self.id)
+            self.order.total -= (old.amount * old.value)
+        self.order.total += (self.amount * self.value)
+        self.order.save()
+        super(OrderDetail, self).save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        self.order.total -= (self.value * self.amount)
+        self.order.save()
+        super(OrderDetail, self).delete(*args, **kwargs)
+
+    def __str__(self):
+        return 'Order #{} - Detail...'.format(self.order.id)

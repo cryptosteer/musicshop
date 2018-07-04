@@ -52,7 +52,7 @@ class AdminArticle(admin.ModelAdmin):
 
 class OrderDetailInLine(admin.StackedInline):
     model = OrderDetail
-    fields = ('article', 'amount', 'value')
+    fields = ('article', 'amount', 'value', 'order')
     extra = 1
 
 
@@ -63,7 +63,6 @@ class AdminOrder(admin.ModelAdmin):
         ('Order Information', {
             'fields': ['client',
                        'seller',
-                       'total',
                        ]
         })
     ]
@@ -72,4 +71,4 @@ class AdminOrder(admin.ModelAdmin):
 
 @admin.register(OrderDetail)
 class AdminOrderDetail(admin.ModelAdmin):
-    pass
+    list_display = ('order', 'article', 'amount', 'value')
