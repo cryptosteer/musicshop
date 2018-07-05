@@ -1,25 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Articulos</title>
-</head>
-<body>
-<h1>Articles</h1>
-<p>This is the template for Articles</p>
-<ul>
-    {% for pr in object_list %}
-        <li>
-            <a href="{% url 'musicshop:detail_article' pk=pr.id %}">{{ pr.name }} </a> |
-            {{ pr.typee }} |
-            {{ pr.genre }} $
-            {% if pr.image %}
-                <img src="{{ pr.image.url }}" alt=" ">
-            {% endif %}
-        </li>
-    {% endfor %}
-    {#    <li>Yogurth</li>#}
-    {#    <li>Espejo</li>#}
-</ul>
-</body>
-</html>
+{% extends 'musicshop/base/base.html' %}
+{% block title_window %}Articles{% endblock %}
+{% block content %}
+    <div class="row">
+        {% for pr in object_list %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    {% if pr.image %}
+                        <a href="{% url 'musicshop:detail_article' pk=pr.id %}"><img class="card-img-top" src="{{ pr.image.url }}" alt=""></a>
+                    {% endif %}
+
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="{% url 'musicshop:detail_article' pk=pr.id %}">{{ pr.album }} </a>
+                        </h4>
+                        <h5>${{ pr.value }}</h5>
+                        <p class="card-text">
+                            <strong>Artist: </strong> {{ pr.artist }}&nbsp;
+                            <strong>Tipo: </strong> {{ pr.typee }}&nbsp;
+                            <strong>Gen: </strong> {{ pr.genre }}
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}
+
+
+

@@ -1,11 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Detail</title>
-</head>
-<body>
-<h1>Article Detail</h1>
-{{ object }}
-</body>
-</html>
+{% extends 'musicshop/base/base.html' %}
+{% block title_window %}Detail Article{% endblock %}
+{% block content %}
+    <div class="col-lg-9">
+
+        <div class="card mt-4">
+            <img class="card-img-top img-fluid" src="{{ object.image.url }}" alt="">
+            <div class="card-body">
+                <h3 class="card-title">{{ object.album }} | {{ object.artist }}</h3>
+                <h4>$24.99</h4>
+                <p class="card-text">
+                    <strong>Artist: </strong> {{ object.artist }} &nbsp;
+                    <strong>Tipo: </strong> {{ object.typee }} &nbsp;
+                    <strong>Gen: </strong> {{ object.genre }} &nbsp;
+                    <strong>year: </strong> {{ object.year }} &nbsp;
+                </p>
+                <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+                4.0 stars
+            </div>
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.col-lg-9 -->
+{% endblock %}
+
